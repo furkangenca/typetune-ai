@@ -1,0 +1,18 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.so
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Sistem dosyaları
+.DS_Store
+Thumbs.db
+
+# Sanal ortam
+venv/
+.env
+
+# NOT: Aşağıdaki satır yorumlandı çünkü .pkl dosyalarını GİT'e dahil etmek istiyorsun
+# *.pkl
