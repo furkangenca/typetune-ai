@@ -7,16 +7,15 @@ from nltk.stem import WordNetLemmatizer
 from sklearn.neighbors import NearestNeighbors
 import nltk
 
+
 # Gerekli NLTK verisi
 nltk.download("wordnet", quiet=True)
 
-# Lemmatizer sınıfını model ile uyumlu hale getir
-class Lemmatizer:
-    def __init__(self):
-        self.lemmatizer = WordNetLemmatizer()
+lemmatizer = WordNetLemmatizer()
 
-    def __call__(self, sentence):
-        return [self.lemmatizer.lemmatize(word) for word in sentence.split() if len(word) > 2]
+def tokenize_and_lemmatize(text):
+    return [lemmatizer.lemmatize(word) for word in text.split() if len(word) > 2]
+
 
 # --- Sayfa ayarları ---
 st.set_page_config(
@@ -181,25 +180,26 @@ user_input = st.text_area(
 )
 
 # --- Fonksiyonlar ---
+
 def predict_mbti(text):
     # Metin temizleme
     text = re.sub(r"https?:\/\/[\^\s]+", "", text)
     text = re.sub(r"[^a-zA-Z\s]", "", text)
     text = text.lower()
     
-    # Lemmatization
+    # Lemmatization 
     lemmatizer = WordNetLemmatizer()
-    tokens = [lemmatizer.lemmatize(word) for word in text.split() if len(word) > 2]
-    processed = " ".join(tokens)
+    text = " ".join([lemmatizer.lemmatize(word) for word in text.split() if len(word) > 2])
     
     # Tahmin
     try:
-        X = vectorizer.transform([processed]).toarray()
+        X = vectorizer.transform([text]).toarray()
         pred = model_log.predict(X)
         return target_encoder.inverse_transform(pred)[0]
     except Exception as e:
         st.error(f"Tahmin hatası: {e}")
         return "INFP"  # Varsayılan değer
+
 
 def get_random_representatives(mbti_type, mbti_df, n=5):
     subset = mbti_df[mbti_df['mbti'] == mbti_type.upper()]
