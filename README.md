@@ -73,11 +73,4 @@ MIT License
 
 ---
 
-### 📌 Dikkat Etmen Gerekenler:
 
-- `ekran_goruntusu.png` dosyasını proje dizinine koy ve yukarıdaki linke uygun hale getir.
-- Görsel linkini GitHub’a yüklendikten sonra düzenlemen gerekebilir.
-- Streamlit arayüzünün tam sayfa bir görüntüsü en idealidir.
-
-İstersen bu içeriği direkt sana `.md` dosyası olarak da hazırlayıp verebilirim.  
-Ek olarak, görseli şimdi istersen ben senin için optimize de edebilirim. Hazır mısın?
