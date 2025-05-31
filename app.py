@@ -208,10 +208,10 @@ def get_random_representatives(mbti_type, mbti_df, n=5):
     selected = subset.sample(n=min(n, len(subset)), random_state=np.random.randint(0, 99999))
     return selected[["danceability_mean", "energy_mean", "valence_mean", "tempo_mean"]].values
 
-def recommend_songs(rep_vec, spotify_df, k=3):
+def recommend_songs(rep_vec, spotify_df, k=3, max_results=5):
     if len(rep_vec) == 0:
         return pd.DataFrame()
-    
+
     features = ["danceability", "energy", "valence", "tempo"]
     knn = NearestNeighbors(n_neighbors=k, metric="euclidean")
     knn.fit(spotify_df[features])
@@ -219,8 +219,12 @@ def recommend_songs(rep_vec, spotify_df, k=3):
     for vec in rep_vec:
         _, idx = knn.kneighbors([vec])
         indices.extend(idx[0])
+    
     unique = list(set(indices))
-    return spotify_df.iloc[unique][["track_name", "artists"] + features]
+    recommended = spotify_df.iloc[unique][["track_name", "artists"] + features]
+    
+    return recommended.head(max_results)
+
 
 # MBTI açıklamaları
 mbti_descriptions = {
@@ -270,7 +274,8 @@ with col2:
                 rep_vec = get_random_representatives(predicted_type, mbti_df)
                 
                 if len(rep_vec) > 0:
-                    recommended = recommend_songs(rep_vec, spotify_df)
+                    recommended = recommend_songs(rep_vec, spotify_df, max_results=5)
+
                     
                     if not recommended.empty:
                         st.markdown(f"""
