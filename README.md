@@ -2,7 +2,7 @@
 
 Bu proje, kullanıcının yazdığı bir cümle üzerinden MBTI (Myers-Briggs Type Indicator) kişilik tipini tahmin eder ve bu tipe uygun müzik önerileri sunar. Uygulama Streamlit arayüzüyle çalışır ve eğitilmiş makine öğrenmesi modelleriyle entegredir.
 
-![image](https://github.com/user-attachments/assets/5ba89d5b-23d0-4a91-82b3-f9fe6e539f4c)
+![resim](https://github.com/user-attachments/assets/864dfcc2-d988-4178-bb16-1e152e534c06)
 
 ---
 
