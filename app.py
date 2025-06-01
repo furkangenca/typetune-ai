@@ -25,12 +25,67 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS
+# Custom CSS - Daha uyumlu gri tonları ile güncellenmiş
 st.markdown("""
 <style>
+    /* Ana sayfa arka planı */
+    .stApp {
+        background-color: #222223 !important;
+        color: #e2e1db !important;
+    }
+    
+    /* Ana container */
+    .main .block-container {
+        background-color: #222223 !important;
+        color: #e2e1db !important;
+    }
+    
+    /* Sidebar arka planı - Daha uyumlu koyu gri */
+    [data-testid="stSidebar"] {
+        background-color: #2d2d30 !important;
+        color: #e2e1db !important;
+    }
+    
+    /* Sidebar içeriği */
+    [data-testid="stSidebar"] .css-1d391kg, 
+    [data-testid="stSidebar"] .css-163ttbj,
+    [data-testid="stSidebar"] .css-1wrcr25,
+    [data-testid="stSidebar"] .css-6qob1r,
+    [data-testid="stSidebar"] .css-1adrfps {
+        background-color: #2d2d30 !important;
+        color: #e2e1db !important;
+    }
+    
+    /* Header bölümü */
+    [data-testid="stHeader"] {
+        background-color: #222223 !important;
+    }
+    
+    /* Tüm toolbar elementleri */
+    .stToolbar, .stToolbar button, .stToolbar [role="button"] {
+        background-color: #222223 !important;
+        color: #e2e1db !important;
+    }
+    
+    /* Tüm view options */
+    [data-testid="stDecoration"], [data-testid="stDecoration"] div {
+        background-color: #222223 !important;
+    }
+    
+    /* Tüm butonlar ve interaktif elementler */
+    button, [role="button"], [role="tab"] {
+        background-color: #3c3c3c !important;
+        color: #e2e1db !important;
+    }
+    
+    /* Tüm divider'lar */
+    hr {
+        border-color: #3c3c3c !important;
+    }
+    
     .main-header {
         text-align: center;
-        background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(90deg, #e2e1db 0%, #babbb8 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         font-size: 2.5rem;
@@ -40,62 +95,137 @@ st.markdown("""
     
     .subtitle {
         text-align: center;
-        color: #666;
+        color: #babbb8;
         font-size: 1.1rem;
         margin-bottom: 2rem;
     }
     
     .mbti-result {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #3c3c3c 0%, #4a4a4a 100%);
         padding: 2rem;
         border-radius: 15px;
         text-align: center;
-        color: white;
+        color: #e2e1db;
         font-size: 1.5rem;
         font-weight: bold;
         margin: 1.5rem 0;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
     
     .song-card {
-        background: white;
+        background: #3c3c3c;
         padding: 1.5rem;
         border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.4);
         margin: 1rem 0;
-        border-left: 4px solid #667eea;
-        color: #333;
+        border-left: 4px solid #babbb8;
+        color: #e2e1db;
     }
 
     .song-card h4 {
-        color: #333;
+        color: #e2e1db;
         margin-bottom: 0.5rem;
     }
 
     .song-card p {
-        color: #555;
+        color: #babbb8;
         margin-bottom: 1rem;
     }
     
     .stButton > button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        border-radius: 25px;
-        padding: 0.75rem 2rem;
-        font-weight: bold;
-        transition: all 0.3s ease;
-        width: 100%;
-        font-size: 1.1rem;
+        background: linear-gradient(135deg, #3c3c3c 0%, #4a4a4a 100%) !important;
+        color: #e2e1db !important;
+        border: none !important;
+        border-radius: 25px !important;
+        padding: 0.75rem 2rem !important;
+        font-weight: bold !important;
+        transition: all 0.3s ease !important;
+        width: 100% !important;
+        font-size: 1.1rem !important;
     }
     
     .stButton > button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transform: translateY(-2px) !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+        background: linear-gradient(135deg, #4a4a4a 0%, #5a5a5a 100%) !important;
     }
     
+    /* Markdown text color */
+    .stMarkdown {
+        color: #e2e1db !important;
+    }
+    
+    /* Markdown içindeki tüm metin elementleri */
+    .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, .stMarkdown h4, .stMarkdown h5, .stMarkdown h6, .stMarkdown p, .stMarkdown li, .stMarkdown a {
+        color: #e2e1db !important;
+    }
+    
+    /* Sidebar içindeki markdown */
+    [data-testid="stSidebar"] .stMarkdown h1, 
+    [data-testid="stSidebar"] .stMarkdown h2, 
+    [data-testid="stSidebar"] .stMarkdown h3, 
+    [data-testid="stSidebar"] .stMarkdown h4, 
+    [data-testid="stSidebar"] .stMarkdown h5, 
+    [data-testid="stSidebar"] .stMarkdown h6, 
+    [data-testid="stSidebar"] .stMarkdown p, 
+    [data-testid="stSidebar"] .stMarkdown li, 
+    [data-testid="stSidebar"] .stMarkdown a,
+    [data-testid="stSidebar"] .stMarkdown span {
+        color: #e2e1db !important;
+    }
+    
+    /* Text area styling */
+    .stTextArea > div > div > textarea {
+        background-color: #3c3c3c !important;
+        color: #e2e1db !important;
+        border: 2px solid #4a4a4a !important;
+    }
+    
+    .stTextArea > div > div > textarea::placeholder {
+        color: #babbb8 !important;
+    }
+    
+    /* Columns */
+    .element-container {
+        color: #e2e1db !important;
+    }
+    
+    /* Warning and error messages */
+    .stAlert {
+        background-color: #3c3c3c !important;
+        color: #e2e1db !important;
+        border: 1px solid #4a4a4a !important;
+    }
+    
+    /* Spinner */
+    .stSpinner {
+        color: #e2e1db !important;
+    }
+    
+    /* Headers */
+    h1, h2, h3, h4, h5, h6 {
+        color: #e2e1db !important;
+    }
+    
+    /* Paragraphs */
+    p {
+        color: #e2e1db !important;
+    }
+    
+    /* Sidebar elements */
     .sidebar .element-container {
-        margin-bottom: 1rem;
+        margin-bottom: 1rem !important;
+    }
+    
+    /* Session state */
+    .stSelectbox > div > div {
+        background-color: #3c3c3c !important;
+        color: #e2e1db !important;
+    }
+    
+    /* Emoji ve ikonlar */
+    .emoji {
+        color: inherit !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -139,8 +269,6 @@ st.markdown('<h1 class="main-header">🎧 MBTI Müzik Keşfi</h1>', unsafe_allow
 st.markdown('<p class="subtitle">Kişiliğinizi keşfedin, müziğinizi bulun</p>', unsafe_allow_html=True)
 
 # --- Model Yükleme ---
-@st.cache_resource
-
 @st.cache_resource
 def load_models():
     try:
@@ -287,9 +415,9 @@ with col2:
                         for idx, row in recommended.iterrows():
                             st.markdown(f"""
                             <div class="song-card">
-                                <h4 style="color: #333;">🎵 {row['track_name']}</h4>
-                                <p style="color: #555;"><strong>Sanatçı:</strong> {row['artists']}</p>
-                                <div style="display: flex; justify-content: space-between; margin-top: 1rem; font-size: 0.9rem; color: #666;">
+                                <h4 style="color: #e2e1db;">🎵 {row['track_name']}</h4>
+                                <p style="color: #babbb8;"><strong>Sanatçı:</strong> {row['artists']}</p>
+                                <div style="display: flex; justify-content: space-between; margin-top: 1rem; font-size: 0.9rem; color: #babbb8;">
                                     <span>🕺 Dans: {row['danceability']:.2f}</span>
                                     <span>⚡ Enerji: {row['energy']:.2f}</span>
                                     <span>😊 Pozitiflik: {row['valence']:.2f}</span>
