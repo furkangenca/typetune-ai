@@ -67,10 +67,4 @@ Uygulama tarayıcınızda otomatik olarak açılacaktır.
 
     Furkan Gença – GitHub/furkangenca
 
-## 📄 Lisans
-
-MIT License
-
----
-
 
