@@ -82,3 +82,10 @@ The Logistic Regression model achieved 68% accuracy on 16-class MBTI classificat
 
 -   Streamlit app delivers 10 personalized song suggestions based on predicted MBTI profile
 
+---
+
+## ⚠️ License
+
+All source code in this repository is provided for **demonstration purposes only**.  
+Reuse, redistribution, or commercial use is **not permitted** without written permission.
+
