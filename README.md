@@ -2,6 +2,8 @@
 
 This project is a personality-based music recommendation system that predicts a user’s MBTI (Myers-Briggs Type Indicator) personality type based on a sentence they write, and then suggests songs that match that personality. It integrates text mining, machine learning, and recommendation system techniques into a streamlined Streamlit web app.
 
+![resim](https://github.com/user-attachments/assets/864dfcc2-d988-4178-bb16-1e152e534c06)
+
 ---
 
 ## 🚀 Key Features
