@@ -1,70 +1,82 @@
-# 🎧 MBTI Music Recommender
+# 🎧 MBTI Music Recommender AI
 
-Bu proje, kullanıcının yazdığı bir cümle üzerinden MBTI (Myers-Briggs Type Indicator) kişilik tipini tahmin eder ve bu tipe uygun müzik önerileri sunar. Uygulama Streamlit arayüzüyle çalışır ve eğitilmiş makine öğrenmesi modelleriyle entegredir.
-
-![resim](https://github.com/user-attachments/assets/864dfcc2-d988-4178-bb16-1e152e534c06)
+This project is a personality-based music recommendation system that predicts a user’s MBTI (Myers-Briggs Type Indicator) personality type based on a sentence they write, and then suggests songs that match that personality. It integrates text mining, machine learning, and recommendation system techniques into a streamlined Streamlit web app.
 
 ---
 
-## 🚀 Özellikler
+## 🚀 Key Features
 
-- 📜 Serbest metinden MBTI kişilik tipi tahmini
-- 🧠 TF-IDF ve Logistic Regression tabanlı sınıflandırma
-- 🎼 MBTI tipine göre ortalama müzik özellikleri çıkarımı
-- 🤖 KNN ile en uygun müzik önerilerini bulma
-- 🌐 Streamlit tabanlı web arayüzü
+- 🧠 Predicts MBTI type from a single sentence using TF-IDF and Logistic Regression
+
+- 🔍 Analyzes average music features (danceability, energy, valence, tempo) for each MBTI type
+
+- 🤖 Uses KNN to recommend songs similar to the predicted profile
+
+- 🌐 Clean and minimal Streamlit-based user interface
+
+- 📊 Includes Jupyter Notebooks for development, analysis, and reproducibility
 
 ---
 
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
-mbti-music-recommender/
-├── app.py # Ana uygulama dosyası (Streamlit)
-├── models/ # Eğitilmiş modeller (.pkl)
-├── data/ # Veri setleri (.csv)
-├── notebooks/ # Geliştirme aşamasındaki notebook'lar
-├── requirements.txt # Gereken Python kütüphaneleri
-└── README.md # Bu dosya
+mbti-music-recommender-ai/
+├── app.py               # Streamlit interface
+├── models/              # Pretrained models (.pkl)
+├── data/                # Datasets (.csv)
+├── notebooks/           # Development notebooks and experiments
+├── requirements.txt     # Dependencies
+└── README.md            # This file
 ```
 
 ---
 
-## 🧪 Nasıl Çalıştırılır?
+## 🧪 How to Run
 
-### Gereksinimleri yükleyin:
-
+Install the required packages:
 ```
 pip install -r requirements.txt
 ```
-
-Uygulamayı başlatın:
-
+Run the application:
 ```
 streamlit run app.py
 ```
+The app will automatically open in your default browser.
 
-Uygulama tarayıcınızda otomatik olarak açılacaktır.
+---
 
-## 📊 Kullanılan Veri Setleri
+## 📊 Datasets Used
 
-    mbti_dataset.csv – MBTI gönderileri
+- mbti_dataset.csv — Contains user posts and MBTI labels
 
-    spotify_dataset.csv – Müzik özellikleri (danceability, energy, valence, tempo)
+- spotify_dataset.csv — Song features (danceability, energy, valence, tempo)
 
-    mbti_personality.csv – Tip başına özet bilgiler
+- mbti_personality.csv — Aggregated music features per MBTI type
 
-## 💡 Model Bilgisi
+---
 
-    MBTI Tahmini: TF-IDF + Logistic Regression
+## 🤖 Modeling Pipeline
+| Task                         | Method                                     |
+| ---------------------------- | ------------------------------------------ |
+| **MBTI Prediction**          | TF-IDF vectorization + Logistic Regression |
+| **Music Profile Generation** | Averaged feature vectors for MBTI types    |
+| **Song Recommendation**      | K-Nearest Neighbors (Euclidean distance)   |
 
-    Müzik Profili Tahmini: Ortalama vektör çıkarımı
 
-    Öneri Motoru: KNN (euclidean mesafe)
+The Logistic Regression model achieved 68% accuracy on 16-class MBTI classification. Deep learning models like CNN were tested but discarded due to overfitting and class imbalance.
 
+---
 
-## ✍️ Geliştirici
+📈 Highlights from the Report
 
-    Furkan Gença – GitHub/furkangenca
+-   Integrated three datasets from Kaggle (MBTI posts, personality-based playlists, and song features)
 
+-   Performed full NLP preprocessing, including tokenization, lemmatization, stop-word filtering, TF-IDF, and SMOTE
+
+-   Applied N-gram and frequency analysis to identify language patterns per personality type
+
+-   Used dynamic prototype vectors instead of static averages to boost personalization
+
+-   Streamlit app delivers 10 personalized song suggestions based on predicted MBTI profile
 
